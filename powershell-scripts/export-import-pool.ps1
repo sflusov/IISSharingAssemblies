@@ -7,9 +7,9 @@ cmd.exe /c "%windir%\system32\inetsrv\appcmd.exe list site /xml | %windir%\syste
 cmd.exe /c "%windir%\system32\inetsrv\appcmd.exe list apppool /xml | %windir%\system32\inetsrv\appcmd delete apppool /in"
 
 #To Export the Application Pools on IIS 7 :
-cmd.exe /c "%windir%\system32\inetsrv\appcmd list apppool /config /xml > c:\apppools.xml"
+#cmd.exe /c "%windir%\system32\inetsrv\appcmd list apppool /config /xml > c:\apppools.xml"
 #To Export all you’re website:
-cmd.exe /c "%windir%\system32\inetsrv\appcmd list site /config /xml > c:\sites.xml"
+#cmd.exe /c "%windir%\system32\inetsrv\appcmd list site /config /xml > c:\sites.xml"
 
 
 #To import the Application Pools:
