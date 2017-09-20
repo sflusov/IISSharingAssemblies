@@ -6,13 +6,13 @@
 $gac_path = "C:\Program Files (x86)\Microsoft SDKs\Windows\v10.0A\bin\NETFX 4.7 Tools\gacutil.exe"
 
 #install assembly to GAC
-Get-ChildItem $asm_path | ForEach-Object {
+Get-ChildItem -recurse $asm_path | where {$_.extension -eq ".dll"} | ForEach-Object {
     Write-Host "Try to install assembly $_"
     & $gac_path "/i", $_.FullName
 }
 
 #uninstall assembly from GAC
-#Get-ChildItem $asm_path | ForEach-Object {
+#Get-ChildItem $asm_path | where {$_.extension -eq ".dll"} | ForEach-Object {
 #   & $gac_path "/u", ([System.Reflection.AssemblyName]::GetAssemblyName($_.FullName).FullName)
 #}
 
