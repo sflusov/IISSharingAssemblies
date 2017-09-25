@@ -32,6 +32,7 @@ function GetWebSiteStatusCode {
 }
 
 
+$startDate = Get-Date
 foreach($site in (Get-ChildItem IIS:\Sites | where {$_.state -eq "Started"}))
 {
     # Site url
@@ -80,4 +81,7 @@ foreach($site in (Get-ChildItem IIS:\Sites | where {$_.state -eq "Started"}))
  }
 }
 
+#calculate total time for warming
+Write-Host "Total warming time: $((Get-Date) - $startDate)"
+#calculate count of running site
 Write-Host "Total site count: $((Get-ChildItem IIS:\Sites | where {$_.state -eq 'Started'}).Count)"
